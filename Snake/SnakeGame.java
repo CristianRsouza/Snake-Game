@@ -79,11 +79,10 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         g.setColor(Color.GREEN);
         g.fillRect(SnakeHead.x * TileSize, SnakeHead.y * TileSize, TileSize, TileSize);
 
-        for(int i = 0 ; i <  SnakeBody.size(); i++) {
+        for (int i = 0; i < SnakeBody.size(); i++) {
             Tile snakePart = SnakeBody.get(i);
             g.fillRect(snakePart.x * TileSize, snakePart.y * TileSize, TileSize, TileSize);
         }
-
         g.setFont(new Font("Arial", Font.PLAIN, 16));
             if(GameOver) {
                 g.setColor(Color.RED);
@@ -117,7 +116,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         }
     
         // Move o corpo da cobra
-        for (int i = SnakeBody.size() - 1; i >= 0; i--) {
+        for (int i = SnakeBody.size() -1; i >= 0; i--) {
             Tile snakePart = SnakeBody.get(i);
             if (i == 0) {
                 // Move a cabeça para a nova posição
@@ -143,6 +142,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
            SnakeHead.y * TileSize < 0 || SnakeHead.y * TileSize > BordHeight      
         ) {
             GameOver = true;
+            gameLoop.stop();
         }
 
     }
